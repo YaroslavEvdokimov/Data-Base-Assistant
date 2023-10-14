@@ -1,10 +1,15 @@
 #pragma once 
 
-#include <iostream>
+#include <QDialog>
+#include <QPushButton>
+#include <QLabel>
+#include <QVBoxLayout>
 
-class App{
+
+class App  : public QDialog {
+    Q_OBJECT
 public:
-    App();
+    App(QWidget *parent = 0);
 
 private:
 
