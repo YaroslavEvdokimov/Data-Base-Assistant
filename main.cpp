@@ -10,6 +10,5 @@ int main(int argv, char **args)
 
     QTextEdit textEdit;
     textEdit.show();
-
     return app.exec();
 }
