@@ -1,25 +1,30 @@
 cmake_minimum_required(VERSION 3.8)	
 
-project(QtDb VERSION 1.0.0 LANGUAGES CXX)			
-
-find_package(Qt5 COMPONENTS Widgets REQUIRED)
-
-set(SOURCE main.cpp app.cpp MainWindow.ui ui_MainWindow.ui)
-
-
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
+project(DataBaseAssistant VERSION 1.0.0 LANGUAGES CXX)			
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-if(CMAKE_VERSION VERSION_LESS "3.7.0")
-    set(CMAKE_INCLUDE_CURRENT_DIR ON)
-endif()
+find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets)
 
-add_executable(${PROJECT_NAME}
-    ${SOURCE} ${UI_SOURCE}
+file(GLOB_RECURSE SOURCES handler/*.h handler/*.cpp)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+set(SOURCE ui/mainwindow.ui ui/mainwindow.h ui/mainwindow.cpp ui/tree.ui ui/tree.h ui/tree.cpp
+    ui/status_bar_button.ui ui/status_bar_button.h ui/status_bar_button.cpp
+    ui/Item.ui ui/Item.h ui/Item.cpp)
+
+qt_add_executable(${PROJECT_NAME} ${SOURCES} ${SOURCE}
+    main.cpp libs/sqlite/sqlite3.c 
+    libs/sqlite/sqlite3.h
 )
 
-target_link_libraries(${PROJECT_NAME} Qt5::Widgets)
+target_include_directories(${PROJECT_NAME} PRIVATE libs)
+
+target_link_libraries(${PROJECT_NAME} PUBLIC
+    Qt::Core
+    Qt::Gui
+    Qt::Widgets)
