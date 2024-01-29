@@ -3,7 +3,8 @@
 Tree::Tree(QWidget *parent)
     : QWidget(parent)
 {
-
+    //QPixmap icon_database("img_database.png");
+    //mTree.icon->setPixmap(icon_database);
 }
 
 void Tree::setupWidget(QWidget *parent)

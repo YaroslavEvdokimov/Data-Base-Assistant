@@ -1032,9 +1032,6 @@
      <property name="text">
       <string/>
      </property>
-     <property name="pixmap">
-      <pixmap>../resource/image/img_database.png</pixmap>
-     </property>
     </widget>
    </widget>
   </widget>

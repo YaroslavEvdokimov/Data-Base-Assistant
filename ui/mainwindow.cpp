@@ -4,8 +4,6 @@
 MainScreen::MainScreen(QMainWindow *parent)
     : QWidget(parent)
 {
-    Handler::DataBaseHandler::init();
-
     mScreen.setupUi(parent);
     mTree.setupWidget(getScreen());
     mStatusBtn = new SatausBarButton(getScreen()); 
@@ -26,9 +24,9 @@ QWidget *MainScreen::getScreen()
 
 void MainScreen::openFileForm()
 {
-    QString filename = QFileDialog::getOpenFileName(this, "Отркыть", QDir::currentPath());
+    QString path_file = QFileDialog::getOpenFileName(this, "Отркыть", QDir::currentPath(), tr("*.db"));
+    mTree.setDatabase(QFileInfo(path_file).fileName().toStdString());
 
-    std::string database = Handler::DataBaseHandler::get()->open(filename.toStdString());
-    mTree.setDatabase(filename.toStdString());
+    Handler::DataBaseHandler::init(path_file.toStdString());
 
 }
