@@ -1,6 +1,6 @@
 #pragma once 
 #include <string>
-
+#include <iostream>
 #include <sqlite/sqlite3.h>
 
 namespace Handler
@@ -19,7 +19,7 @@ public:
 private:
     DataBaseHandler(){};
     static int callback(void* data, int argc, char** argv, char** azColName);
-    void open(std::string path);
+    std::string open(std::string path);
 
 private:
     static DataBaseHandler* mDataBaseHandeler;

@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.8)	
 
-project(DataBaseAssistant VERSION 1.0.0 LANGUAGES CXX)			
+project(DataBaseAssistant)			
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)

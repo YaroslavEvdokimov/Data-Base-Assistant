@@ -1,8 +1,11 @@
 #include "mainwindow.h"
+#include "../handler/DataBaseHandler.h"
 
 MainScreen::MainScreen(QMainWindow *parent)
     : QWidget(parent)
 {
+    Handler::DataBaseHandler::init();
+
     mScreen.setupUi(parent);
     mTree.setupWidget(getScreen());
     mStatusBtn = new SatausBarButton(getScreen()); 
@@ -25,6 +28,7 @@ void MainScreen::openFileForm()
 {
     QString filename = QFileDialog::getOpenFileName(this, "Отркыть", QDir::currentPath());
 
+    std::string database = Handler::DataBaseHandler::get()->open(filename.toStdString());
     mTree.setDatabase(filename.toStdString());
 
 }

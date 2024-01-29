@@ -1,0 +1,1 @@
+#define OPTIONS_GET_INFO_DB "SELECT * FROM sqlite_master;"

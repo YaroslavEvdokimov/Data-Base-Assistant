@@ -23,12 +23,14 @@ namespace Handler
         handler->mInit = true;
     }
 
-    void DataBaseHandler::open(std::string path)
+    std::string DataBaseHandler::open(std::string path)
     {
         if (sqlite3_open(path.c_str(), &mDataBase))
         {
-             
-        } 
+            
+            return ;
+        }else 
+            std::cout << "Database is not open!" << std::endl;
     }
 
     int DataBaseHandler::callback(void* data, int argc, char** argv, char** azColName) 
@@ -43,18 +45,20 @@ namespace Handler
 	    return 0;
     }
 
-void  DataBaseHandler::request(std::string sql_req)
+    void  DataBaseHandler::request(std::string sql_req)
 {
-	// if (!vAgro.empty())
-	// {
-	// 	remove();
-	// }
+	/*if (!vAgro.empty())
+	{
+		remove();
+	}*/
 
 	int result = sqlite3_exec(mDataBase, sql_req.c_str(), callback, (void*)this, &messageError);
 
 	if (result != SQLITE_OK) {
 		sqlite3_free(messageError);
-	}
+		//LOGF(FATAL, "SQL Request failed!");
+	}//else 
+		//LOGF(INFO, "SQL Request - Done!");
 
 }
 }
