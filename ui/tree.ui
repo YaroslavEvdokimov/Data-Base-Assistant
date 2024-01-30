@@ -1032,7 +1032,20 @@
      <property name="text">
       <string/>
      </property>
+     <property name="pixmap">
+      <pixmap>../resource/image/img_database.png</pixmap>
+     </property>
     </widget>
+   </widget>
+   <widget class="QWidget" name="widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>76</y>
+      <width>360</width>
+      <height>940</height>
+     </rect>
+    </property>
    </widget>
   </widget>
  </widget>

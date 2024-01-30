@@ -2,6 +2,7 @@
 #include <QApplication>
 #include <QTextEdit>
 #include <QPushButton>
+#include <QVBoxLayout>
 #include "ui_ItemTable.h"
 
 class ItemTable : public QWidget, private Ui::ItemTable
@@ -9,7 +10,7 @@ class ItemTable : public QWidget, private Ui::ItemTable
     Q_OBJECT
 
 public:
-    explicit ItemTable(QWidget *parent, int position, std::string name);
+    explicit ItemTable(QWidget *parent = nullptr);
 
 private slots:
     //void on_btn_clicked();

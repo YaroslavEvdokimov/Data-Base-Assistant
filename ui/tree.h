@@ -1,7 +1,7 @@
 #pragma once 
 #include <QApplication>
 #include <QTextEdit>
-
+#include "ItemTable.h"
 #include "ui_tree.h"
 
 class Tree : public QWidget
@@ -19,4 +19,5 @@ private slots:
 
 private:
     Ui::Tree mTree;
+    std::vector<std::unique_ptr<ItemTable>> mItemTable;
 };

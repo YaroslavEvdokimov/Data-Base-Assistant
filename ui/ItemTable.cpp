@@ -1,10 +1,12 @@
 #include "ItemTable.h"
-#include <iostream>
-ItemTable::ItemTable(QWidget *parent, int position, std::string name)
+
+ItemTable::ItemTable(QWidget *parent)
     : QWidget(parent)
 {
     setParent(parent);
     setupUi(parent);
+
+    //table_name->setText(QCoreApplication::translate("Item", "123213123", nullptr));
 
     // btn->setText(QCoreApplication::translate("Item", name.c_str(), nullptr));
 

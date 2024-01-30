@@ -1,11 +1,8 @@
 #include "tree.h"
-#include "ItemTable.h"
 
 Tree::Tree(QWidget *parent)
     : QWidget(parent)
 {
-    //QPixmap icon_database("img_database.png");
-    //mTree.icon->setPixmap(icon_database);
 }
 
 void Tree::setupWidget(QWidget *parent)
@@ -19,4 +16,12 @@ void Tree::setupWidget(QWidget *parent)
 void Tree::setDatabase(std::string name)
 {
     mTree.lbl_database->setText(QCoreApplication::translate("Tree", name.c_str() , nullptr));
+
+    // ItemTable * item = new ItemTable(mTree.database);
+    // QVBoxLayout *layout = new QVBoxLayout(mTree.database);
+    // layout->addWidget(item);
+    // mItemTable.push_back(std::make_unique<ItemTable>(nullptr, "", mTree.Flex));
+    // mItemTable.push_back(std::make_unique<ItemTable>(nullptr, "", mTree.Flex));
+    // mItemTable.push_back(std::make_unique<ItemTable>(nullptr, "", mTree.Flex));
+
 }
