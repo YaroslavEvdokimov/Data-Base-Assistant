@@ -15,7 +15,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(SOURCE ui/mainwindow.ui ui/mainwindow.h ui/mainwindow.cpp ui/tree.ui ui/tree.h ui/tree.cpp
     ui/status_bar_button.ui ui/status_bar_button.h ui/status_bar_button.cpp
-    ui/Item.ui ui/Item.h ui/Item.cpp)
+    ui/Item.ui ui/Item.h ui/Item.cpp
+    ui/ItemTable.ui ui/ItemTable.h ui/ItemTable.cpp)
 
 qt_add_executable(${PROJECT_NAME} ${SOURCES} ${SOURCE}
     main.cpp libs/sqlite/sqlite3.c 

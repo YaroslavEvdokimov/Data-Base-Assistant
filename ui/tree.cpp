@@ -1,4 +1,5 @@
 #include "tree.h"
+#include "ItemTable.h"
 
 Tree::Tree(QWidget *parent)
     : QWidget(parent)
